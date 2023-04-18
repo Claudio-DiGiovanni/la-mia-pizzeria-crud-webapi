@@ -35,7 +35,7 @@ namespace la_mia_pizzeria_static.Api
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetPizza([FromQuery] long? id)
+        public IActionResult GetPizza(long? id)
         {
             var pizza = _context.Pizzas!.FirstOrDefault(p => p.Id == id);
 

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "la-mia-pizzeria-crud-mvc", "la-mia-pizzeria-crud-mvc\la-mia-pizzeria-crud-mvc.csproj", "{33C266D9-3E87-44E0-A6E6-451A16793277}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "la-mia-pizzeria-crud-webapi", "la-mia-pizzeria-crud-webapi\la-mia-pizzeria-crud-webapi.csproj", "{9362959D-BE6F-4739-92FB-1E4A62115803}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33C266D9-3E87-44E0-A6E6-451A16793277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C266D9-3E87-44E0-A6E6-451A16793277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C266D9-3E87-44E0-A6E6-451A16793277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C266D9-3E87-44E0-A6E6-451A16793277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9362959D-BE6F-4739-92FB-1E4A62115803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9362959D-BE6F-4739-92FB-1E4A62115803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9362959D-BE6F-4739-92FB-1E4A62115803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9362959D-BE6F-4739-92FB-1E4A62115803}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D42233C6-B914-4DC5-BA5A-CDED9AED8DB3}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,13 @@
+﻿
+@{
+    var myContacts = new{email = "mario.rossi@gmail.com", tel = "1234567890", address = "via verdi 15"};
+}
+
+<div class="container">
+    <h2 class="text-center">Puoi contattarmi qui: </h2>
+    <ul class="list-unstyled">
+        <li>@myContacts.email</li>
+        <li>@myContacts.tel</li>
+        <li>@myContacts.address</li>
+    </ul>
+</div>

@@ -1,0 +1,35 @@
+﻿@model Pizza[];
+@{
+    ViewData["Title"] = "Lista Pisse";
+    var pizze = Model;
+}
+<h1 class="text-center title">La Mia Pizzeria</h1>
+<div class="container d-flex justify-content-center"><a href="@Url.Action("Create")" class="btn btn-primary">Aggiungi una pizza</a></div>
+<div class="container d-flex justify-content-center">
+    @if(pizze == null)
+    {
+        <p>Mi dispiace non ci sono pizze</p>
+    }
+    else
+    {
+        <table class="table table-striped w-50">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Nome</th>
+                    <th scope="col">Prezzo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pizza in pizze)
+                {
+                    <tr class="text-center align-middle">
+                        <th scope="row" class="d-flex justify-content-center"> <a class="btn btn-secondary w-50" href="@Url.Action("Details", "Pizza", new { Id = pizza.Id })">@pizza.Nome</a></th>
+                        <td>@pizza.Prezzo €</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    
+</div>
+

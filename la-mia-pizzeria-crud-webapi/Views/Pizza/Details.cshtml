@@ -1,0 +1,31 @@
+﻿
+@model Pizza;
+@{
+    var pizza = Model;
+}
+
+<div class="container d-flex justify-content-center py-5">
+    <div class="card w-50">
+        <img src="@pizza.Foto" class="card-img-top" alt="@pizza.Nome">
+        <div class="card-body">
+            <h5 class="card-title">@pizza.Nome</h5>
+            <p class="card-text">@pizza.Descrizione</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between"><span>Prezzo: <strong>@pizza.Prezzo €</strong></span><span>Categoria: <strong>@pizza.Categoria.Nome</strong></span></li>
+            <li class="list-group-item">Ingredienti: 
+                @foreach (var ingrediente in pizza.Ingridients)
+                {
+                   <span>@ingrediente.Name, </span>
+                }
+            </li>
+            <li class="list-group-item"><a class="btn btn-success w-100" href="@Url.Action("Update", "Pizza", new { Id = pizza.Id })">Modifica</a></li>
+            <li class="list-group-item">
+                <form method="post" asp-action="Delete" asp-controller="Pizza" asp-route-id="@pizza.Id">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger w-100">Elimina</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>

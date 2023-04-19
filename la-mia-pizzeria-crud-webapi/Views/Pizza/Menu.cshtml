@@ -1,35 +1,75 @@
-﻿@model Pizza[];
+﻿@*
+@model pizza[];
 @{
-    ViewData["Title"] = "Lista Pisse";
-    var pizze = Model;
+    viewdata["title"] = "lista pisse";
+    var pizze = model;
 }
-<h1 class="text-center title">La Mia Pizzeria</h1>
-<div class="container d-flex justify-content-center"><a href="@Url.Action("Create")" class="btn btn-primary">Aggiungi una pizza</a></div>
+<h1 class="text-center title">la mia pizzeria</h1>
+<div class="container d-flex justify-content-center"><a href="@url.action("create")" class="btn btn-primary">aggiungi una pizza</a></div>
 <div class="container d-flex justify-content-center">
     @if(pizze == null)
     {
-        <p>Mi dispiace non ci sono pizze</p>
+        <p>mi dispiace non ci sono pizze</p>
     }
     else
     {
         <table class="table table-striped w-50">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">Nome</th>
-                    <th scope="col">Prezzo</th>
+                    <th scope="col">nome</th>
+                    <th scope="col">prezzo</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var pizza in pizze)
                 {
                     <tr class="text-center align-middle">
-                        <th scope="row" class="d-flex justify-content-center"> <a class="btn btn-secondary w-50" href="@Url.Action("Details", "Pizza", new { Id = pizza.Id })">@pizza.Nome</a></th>
-                        <td>@pizza.Prezzo €</td>
+                        <th scope="row" class="d-flex justify-content-center"> <a class="btn btn-secondary w-50" href="@url.action("details", "pizza", new { id = pizza.id })">@pizza.nome</a></th>
+                        <td>@pizza.prezzo €</td>
                     </tr>
                 }
             </tbody>
         </table>
     }
     
+</div>*@
+
+@{
+    ViewData["title"] = "lista pisse";
+}
+<h1 class="text-center title">la mia pizzeria</h1>
+
+
+<div class="container d-flex align-items-center flex-column">
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div><a href="@Url.Action("create")" class="btn btn-primary">aggiungi una pizza</a></div>
+    }
+
+    <div class="my-3">
+        <input type="text" class="form-control" id="filter" placeholder="Ricerca...">
+    </div>
+
+    <p id="no-pizza">mi dispiace non ci sono pizze</p>
+
+    <table class="table table-striped w-50">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">nome</th>
+                <th scope="col">prezzo</th>
+            </tr>
+        </thead>
+        <tbody id="pizze-table">
+
+        </tbody>
+    </table>
 </div>
 
+@section Scripts
+{
+    <script>
+        loadPizze();
+        initFilter();
+    </script>
+}

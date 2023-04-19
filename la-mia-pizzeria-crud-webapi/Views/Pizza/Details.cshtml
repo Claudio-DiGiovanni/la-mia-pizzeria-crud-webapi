@@ -20,11 +20,8 @@
                 }
             </li>
             <li class="list-group-item"><a class="btn btn-success w-100" href="@Url.Action("Update", "Pizza", new { Id = pizza.Id })">Modifica</a></li>
-            <li class="list-group-item">
-                <form method="post" asp-action="Delete" asp-controller="Pizza" asp-route-id="@pizza.Id">
-                    @Html.AntiForgeryToken()
-                    <button type="submit" class="btn btn-danger w-100">Elimina</button>
-                </form>
+            <li class="list-group-item"> 
+                <button onclick="deletePizza(@pizza.Id)" type="submit" class="btn btn-danger w-100">Elimina</button>             
             </li>
         </ul>
     </div>

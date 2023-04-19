@@ -34,6 +34,20 @@ namespace la_mia_pizzeria_static.Api
             return Ok(pizze);
         }
 
+        [Route("category")]
+        [HttpGet]
+        public IActionResult GetCategories()
+        {
+            return Ok(_context.Categories.ToList());
+        }
+
+        [Route("ingridients")]
+        [HttpGet]
+        public IActionResult GetIngridients()
+        {
+            return Ok(_context.Ingridients.ToList());
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetPizza(long? id)
         {

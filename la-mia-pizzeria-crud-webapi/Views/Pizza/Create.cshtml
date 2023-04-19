@@ -2,43 +2,47 @@
 
 <div class="container">
     <h2 class="text-center mt-3">Crea una nuova Pizza!</h2>
-    <form class="p-5" method="post" asp-action="Create" asp-controller="Pizza">
-        @Html.AntiForgeryToken()
+    <form class="p-5" id="create-form">
         <div class="mb-3">
-            <label asp-for="Pizza.Nome" class="form-label">Nome Pizza</label>
-            <input type="text" class="form-control" asp-for="Pizza.Nome" placeholder="Inserisci il nome della pizza">
-            <span asp-validation-for="Pizza.Nome" class="text-warning"></span>
+            <label for="nome" class="form-label">Nome Pizza</label>
+            <input type="text" class="form-control" id="nome" placeholder="Inserisci il nome della pizza">
+            <span id="nome-error" class="text-warning"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Pizza.Descrizione" class="form-label">Descrizione della pizza</label>
-            <input type="text" class="form-control" asp-for="Pizza.Descrizione" placeholder="Es. pomodoro, mozzarella...">
-            <span asp-validation-for="Pizza.Descrizione" class="text-warning"></span>
+            <label for="descrizione" class="form-label">Descrizione della pizza</label>
+            <input type="text" class="form-control" id="descrizione" placeholder="Es. pomodoro, mozzarella...">
+            <span id="descrizione-error" class="text-warning"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Pizza.Foto" class="form-label">Foto della pizza</label>
-            <input type="text" class="form-control" asp-for="Pizza.Foto" placeholder="url o percorso foto...">
-            <span asp-validation-for="Pizza.Foto" class="text-warning"></span> 
+            <label for="foto" class="form-label">Foto della pizza</label>
+            <input type="text" class="form-control" id="foto" placeholder="url o percorso foto...">
+            <span id="foto-error" class="text-warning"></span> 
         </div>
         <div class="mb-3">
-            <label asp-for="Pizza.Prezzo" class="form-label">Prezzo</label>
-            <input type="number" class="form-control" asp-for="Pizza.Prezzo" placeholder="Es. 5€" step="0.01">
-            <span asp-validation-for="Pizza.Prezzo" class="text-warning"></span>
+            <label for="prezzo" class="form-label">Prezzo</label>
+            <input type="number" class="form-control" id="prezzo" placeholder="Es. 5€" step="0.01">
+            <span id="prezzo-error" class="text-warning"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Pizza.CategoriaId" class="form-label">Categoria</label>
-            <select class="form-select" asp-for="Pizza.CategoriaId">
+            <label for="categoriaId" class="form-label">Categoria</label>
+            <select class="form-select" id="categoriaId">
                 <option value="0"></option>
-                @foreach(var categoria in Model.Categories)
-                {
-                    <option value="@categoria.Id">@categoria.Nome</option>
-                }
             </select>
-            <span asp-validation-for="Pizza.CategoriaId" class="text-warning"></span>
+            <span id="categoriaId-error" class="text-warning"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="SelectedIngridients">Ingredienti</label>
-            <select asp-for="SelectedIngridients" class="form-select" multiple="multiple" asp-items="@Model.Ingridients"></select>
+            <label>Ingredienti</label>
+            <div id="ingredienti"></div>
         </div>
         <button type="submit" class="btn btn-primary">Crea</button>
     </form>
 </div>
+
+@section Scripts
+    {
+    <script>
+        loadCategories();
+        loadIngredients();
+        initCreateForm();
+    </script>
+}

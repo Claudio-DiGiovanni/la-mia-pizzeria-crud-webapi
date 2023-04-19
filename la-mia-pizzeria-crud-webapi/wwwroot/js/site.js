@@ -32,7 +32,7 @@ const renderPizzas = pizze => {
 const pizzaComponent = pizza => `
         <tr class="text-center align-middle">
         <th scope="row" class="d-flex justify-content-center">
-        <a class="btn btn-secondary w-50" href="/pizza/detail/${pizza.id}">${pizza.nome}</a>
+        <a class="btn btn-secondary w-50" href="/pizza/details/${pizza.id}">${pizza.nome}</a>
         </th>
         <td>${pizza.prezzo}€</td>
         </tr>
@@ -125,7 +125,7 @@ const renderErrors = errors => {
     categoriaIdErrors.innerText = errors.CategoriaId?.join('\n') ?? '';
 }
 
-// EDIT
+// DETAILS
 
 const getPizza = id => axios
     .get(`/api/pizza/${id}`)
